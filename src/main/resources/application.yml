@@ -1,0 +1,70 @@
+spring:
+  application:
+    name: nager-holiday-service
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+  cache:
+    type: caffeine
+    cache-names: publicHolidays,weekdayCounts,commonDates,lastThree
+    caffeine:
+      spec: maximumSize=1000,expireAfterWrite=6h
+server:
+  port: 8080
+
+springdoc:
+  api-docs:
+    enabled    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-components: always
+      show-details: when_authorized
+app:
+  cache:
+    async: true
+  webclient:
+    connect-timeout-ms: 10000   # 10s
+    response-timeout-ms: 20000  # 20s
+    read-timeout-ms: 20000
+    write-timeout-ms: 20000
+    retry:
+      max-retries: 2
+      backoff-ms: 300
+      jitter: 0.2
+holiday:
+  weekend:
+    default: [SATURDAY, SUNDAY]
+    overrides:
+      AE: [FRIDAY, SATURDAY]
+      IL: [FRIDAY, SATURDAY]
+      BD: [FRIDAY, SATURDAY]
+      SA: [FRIDAY, SATURDAY]
+# WebClient base URL for Nager.Date API; override this in tests to point to WireMock
+nager:
+  base-url: https://date.nager.at/api/v3
+
+logging:
+  level:
+    root: INFO
+    com.example.nager: DEBUG
+
+# Resilience4j RateLimiter configuration (client-side rate limiting on Nager API calls)
+resilience4j:
+  ratelimiter:
+    instances:
+      nager:
+        limitForPeriod: 50         # permissions per refresh period
+        limitRefreshPeriod: 1s     # cycle length
+        timeoutDuration: 0s        # do not wait for permission
