@@ -1,9 +1,7 @@
 spring:
   application:
     name: nager-holiday-service
-  jackson:
-    serialization:
-      write-dates-as-timestamps: false
+
   cache:
     type: caffeine
     cache-names: publicHolidays,weekdayCounts,commonDates,lastThree
@@ -14,7 +12,7 @@ server:
 
 springdoc:
   api-docs:
-    enabled    enabled: true
+    enabled: true
     path: /v3/api-docs
   swagger-ui:
     enabled: true

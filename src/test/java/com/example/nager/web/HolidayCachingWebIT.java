@@ -5,32 +5,33 @@ import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.client.WireMock;
 import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
+import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 
-@SpringBootTest(classes = NagerHolidaysApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@AutoConfigureWebTestClient
+@SpringBootTest(classes = NagerHolidaysApplication.class,
+        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
+        properties = "spring.main.allow-bean-definition-overriding=true"
+)
+@Import(HolidayCachingWebIT.TestConfig.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class HolidayCachingWebIT {
 
     // WireMock server for backend Nager.Date API
     static WireMockServer wm = new WireMockServer(WireMockConfiguration.options().dynamicPort());
-
-    @Autowired
-    WebTestClient webClient;
 
     static {
         wm.start();
@@ -56,6 +57,19 @@ public class HolidayCachingWebIT {
             // simple in-memory caches for deterministic behavior in tests
             return new ConcurrentMapCacheManager("lastThree", "weekdayCounts", "commonDates", "publicHolidays");
         }
+
+    }
+
+    @LocalServerPort
+    private int port;
+
+    private WebTestClient webClient;
+
+    @BeforeAll
+    void setUpWebClient() {
+        this.webClient = WebTestClient.bindToServer()
+                .baseUrl("http://localhost:" + port)
+                .build();
     }
 
     @Test

@@ -6,8 +6,8 @@ import com.github.tomakehurst.wiremock.client.WireMock;
 import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.webclient.test.autoconfigure.AutoConfigureWebClient;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.web.reactive.server.WebTestClient;
@@ -15,7 +15,7 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 
 @SpringBootTest(classes = NagerHolidaysApplication.class)
-@AutoConfigureWebTestClient
+@AutoConfigureWebClient
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class WireMockIT {
     // Start WireMock early so DynamicPropertySource can reference the port reliably
