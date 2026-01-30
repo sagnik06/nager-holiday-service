@@ -26,7 +26,8 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 
 @SpringBootTest(classes = NagerHolidaysApplication.class,
         webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
-        properties = "spring.main.allow-bean-definition-overriding=true"
+        properties = {"spring.main.allow-bean-definition-overriding=true",
+        "spring.cache.cache-names=lastThree,weekdayCounts,commonDates,publicHolidays"}
 )
 @Import(HolidayCachingWebIT.TestConfig.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)

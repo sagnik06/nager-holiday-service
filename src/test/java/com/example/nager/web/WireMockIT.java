@@ -16,7 +16,11 @@ import java.time.LocalDate;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 
-@SpringBootTest(classes = NagerHolidaysApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = NagerHolidaysApplication.class,
+        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
+        properties = {"spring.main.allow-bean-definition-overriding=true",
+                "spring.cache.cache-names=lastThree,weekdayCounts,commonDates,publicHolidays"}
+)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class WireMockIT {
     // Start WireMock early so DynamicPropertySource can reference the port reliably
