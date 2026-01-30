@@ -20,6 +20,8 @@ import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
+import java.time.LocalDate;
+
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 
 @SpringBootTest(classes = NagerHolidaysApplication.class,
@@ -53,7 +55,8 @@ public class HolidayCachingWebIT {
     @EnableCaching
     static class TestConfig {
         @Bean
-        CacheManager cacheManager() {
+        @org.springframework.context.annotation.Primary
+        CacheManager testCacheManager() {
             // simple in-memory caches for deterministic behavior in tests
             return new ConcurrentMapCacheManager("lastThree", "weekdayCounts", "commonDates", "publicHolidays");
         }
@@ -74,12 +77,13 @@ public class HolidayCachingWebIT {
 
     @Test
     void controller_calls_are_cached_and_back_end_is_invoked_once() {
+        int currentYear = LocalDate.now().getYear();
         // stub current and previous year endpoints used by the controller/service
-        wm.stubFor(get(urlEqualTo("/PublicHolidays/2025/GB"))
-                .willReturn(okJson("[{\"date\":\"2025-01-01\",\"name\":\"New Year's Day\",\"localName\":\"New Year's Day\"}]")));
+        wm.stubFor(get(urlEqualTo("/PublicHolidays/" + currentYear + "/GB"))
+                .willReturn(okJson("[{\"date\":\"" + currentYear + "-01-01\",\"name\":\"New Year's Day\",\"localName\":\"New Year's Day\"}]")));
 
-        wm.stubFor(get(urlEqualTo("/PublicHolidays/2024/GB"))
-                .willReturn(okJson("[{\"date\":\"2024-12-25\",\"name\":\"Christmas Day\",\"localName\":\"Christmas Day\"}]")));
+        wm.stubFor(get(urlEqualTo("/PublicHolidays/" + (currentYear - 1) + "/GB"))
+                .willReturn(okJson("[{\"date\":\"" + (currentYear - 1) + "-12-25\",\"name\":\"Christmas Day\",\"localName\":\"Christmas Day\"}]")));
 
         // First call should trigger backend requests
         webClient.get()
@@ -94,8 +98,7 @@ public class HolidayCachingWebIT {
                 .expectStatus().isOk();
 
         // Verify WireMock received exactly 1 request per year endpoint
-        WireMock.verify(1, getRequestedFor(urlEqualTo("/PublicHolidays/2025/GB")));
-        WireMock.verify(1, getRequestedFor(urlEqualTo("/PublicHolidays/2024/GB")));
+        WireMock.verify(1, getRequestedFor(urlEqualTo("/PublicHolidays/" + currentYear + "/GB")));
+        WireMock.verify(1, getRequestedFor(urlEqualTo("/PublicHolidays/" + (currentYear - 1) + "/GB")));
     }
 }
-
