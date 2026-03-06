@@ -34,14 +34,15 @@ public class HolidayService {
 
     @Cacheable(cacheNames = "weekdayCounts", key = "#p0 + ':' + #p1")
     public Mono<List<CountryHolidayCount>> countWeekdayHolidays(int year, List<String> countryCodes) {
-        List<Mono<CountryHolidayCount>> monos = new ArrayList<>();
-        for (String cc : countryCodes) {
-            monos.add(client.getPublicHolidays(year, cc).map(list -> {
-                Set<DayOfWeek> weekend = weekendFor(cc);
-                long weekdayCount = list.stream().filter(h -> !weekend.contains(h.getDate().getDayOfWeek())).count();
-                return new CountryHolidayCount(cc, (int) weekdayCount);
-            }));
-        }
+        var monos = countryCodes.stream()
+            .map(cc -> client.getPublicHolidays(year, cc)
+                .map(list -> {
+                    var weekend = weekendFor(cc);
+                    var weekdayCount = (int) list.stream().filter(h -> !weekend.contains(h.getDate().getDayOfWeek())).count();
+                    return new CountryHolidayCount(cc, weekdayCount);
+                }))
+            .toList();
+
         return Flux.mergeSequential(monos)
             .collectList()
             .map(list -> { Collections.sort(list); return list; })
@@ -53,18 +54,16 @@ public class HolidayService {
         Mono<List<PublicHoliday>> a = client.getPublicHolidays(year, countryA);
         Mono<List<PublicHoliday>> b = client.getPublicHolidays(year, countryB);
         return Mono.zip(a, b).map(tuple -> {
-            Map<LocalDate, String> byDateA = tuple.getT1().stream().collect(Collectors.toMap(PublicHoliday::getDate, PublicHoliday::getLocalName, (h1, h2) -> h1));
-            Map<LocalDate, String> byDateB = tuple.getT2().stream().collect(Collectors.toMap(PublicHoliday::getDate, PublicHoliday::getLocalName, (h1, h2) -> h1));
-            Set<LocalDate> intersection = new TreeSet<>(byDateA.keySet());
+            var byDateA = tuple.getT1().stream().collect(Collectors.toMap(PublicHoliday::getDate, PublicHoliday::getLocalName, (h1, h2) -> h1));
+            var byDateB = tuple.getT2().stream().collect(Collectors.toMap(PublicHoliday::getDate, PublicHoliday::getLocalName, (h1, h2) -> h1));
+            var intersection = new TreeSet<>(byDateA.keySet());
             intersection.retainAll(byDateB.keySet());
             return intersection.stream().sorted().map(d -> new CommonHoliday(d, byDateA.get(d), byDateB.get(d))).toList();
         });
     }
 
     private Set<DayOfWeek> weekendFor(String countryCode) {
-        List<String> configured = weekendProps.getOverrides().getOrDefault(countryCode.toUpperCase(), weekendProps.getDefault());
-        Set<DayOfWeek> s = new HashSet<>();
-        for (String d : configured) s.add(DayOfWeek.valueOf(d));
-        return s;
+        var configured = weekendProps.getOverrides().getOrDefault(countryCode.toUpperCase(), weekendProps.getDefault());
+        return configured.stream().map(DayOfWeek::valueOf).collect(Collectors.toSet());
     }
 }

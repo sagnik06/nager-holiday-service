@@ -1,8 +1,7 @@
 package com.example.nager.model;
 import java.time.LocalDate;
-public class HolidaySummary {
-    private LocalDate date; private String name;
-    public HolidaySummary(LocalDate date, String name) { this.date = date; this.name = name; }
+public record HolidaySummary(LocalDate date, String name) {
+    // Backwards-compatible bean-style getters used in tests and other code
     public LocalDate getDate() { return date; }
     public String getName() { return name; }
 }
