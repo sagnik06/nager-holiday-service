@@ -1,0 +1,120 @@
+The following files have been resolved:
+   org.springframework.boot:spring-boot-starter-webflux:jar:4.0.4:compile[36m -- module spring.boot.starter.webflux[0;1m [auto][m
+   org.springframework.boot:spring-boot-starter:jar:4.0.4:compile[36m -- module spring.boot.starter[0;1m [auto][m
+   org.springframework.boot:spring-boot-starter-logging:jar:4.0.4:compile[36m -- module spring.boot.starter.logging[0;1m [auto][m
+   ch.qos.logback:logback-classic:jar:1.5.32:compile[36m -- module ch.qos.logback.classic[m
+   ch.qos.logback:logback-core:jar:1.5.32:compile[36m -- module ch.qos.logback.core[m
+   org.apache.logging.log4j:log4j-to-slf4j:jar:2.25.3:compile[36m -- module org.apache.logging.log4j.to.slf4j[m
+   org.apache.logging.log4j:log4j-api:jar:2.25.3:compile[36m -- module org.apache.logging.log4j[m
+   org.slf4j:jul-to-slf4j:jar:2.0.17:compile[36m -- module jul.to.slf4j[m
+   org.springframework.boot:spring-boot-autoconfigure:jar:4.0.4:compile[36m -- module spring.boot.autoconfigure[0;1m [auto][m
+   jakarta.annotation:jakarta.annotation-api:jar:3.0.0:compile[36m -- module jakarta.annotation[m
+   org.yaml:snakeyaml:jar:2.5:compile[36m -- module org.yaml.snakeyaml[m
+   org.springframework.boot:spring-boot-starter-jackson:jar:4.0.4:compile[36m -- module spring.boot.starter.jackson[0;1m [auto][m
+   org.springframework.boot:spring-boot-jackson:jar:4.0.4:compile[36m -- module spring.boot.jackson[0;1m [auto][m
+   tools.jackson.core:jackson-databind:jar:3.1.0:compile[36m -- module tools.jackson.databind[m
+   tools.jackson.core:jackson-core:jar:3.1.0:compile[36m -- module tools.jackson.core[m
+   org.springframework.boot:spring-boot-starter-reactor-netty:jar:4.0.4:compile[36m -- module spring.boot.starter.reactor.netty[0;1m [auto][m
+   org.springframework.boot:spring-boot-reactor-netty:jar:4.0.4:compile[36m -- module spring.boot.reactor.netty[0;1m [auto][m
+   org.springframework:spring-web:jar:7.0.6:compile[36m -- module spring.web[0;1m [auto][m
+   org.springframework.boot:spring-boot-netty:jar:4.0.4:runtime[36m -- module spring.boot.netty[0;1m [auto][m
+   io.netty:netty-common:jar:4.2.10.Final:compile[36m -- module io.netty.common[m
+   org.springframework.boot:spring-boot-reactor:jar:4.0.4:compile[36m -- module spring.boot.reactor[0;1m [auto][m
+   org.springframework.boot:spring-boot:jar:4.0.4:compile[36m -- module spring.boot[0;1m [auto][m
+   org.springframework:spring-context:jar:7.0.6:compile[36m -- module spring.context[0;1m [auto][m
+   org.springframework:spring-aop:jar:7.0.6:compile[36m -- module spring.aop[0;1m [auto][m
+   org.springframework:spring-expression:jar:7.0.6:compile[36m -- module spring.expression[0;1m [auto][m
+   org.springframework.boot:spring-boot-webflux:jar:4.0.4:compile[36m -- module spring.boot.webflux[0;1m [auto][m
+   org.springframework.boot:spring-boot-http-codec:jar:4.0.4:compile[36m -- module spring.boot.http.codec[0;1m [auto][m
+   org.springframework:spring-webflux:jar:7.0.6:compile[36m -- module spring.webflux[0;1m [auto][m
+   org.springframework:spring-beans:jar:7.0.6:compile[36m -- module spring.beans[0;1m [auto][m
+   org.springframework.boot:spring-boot-web-server:jar:4.0.4:compile[36m -- module spring.boot.web.server[0;1m [auto][m
+   org.springframework.boot:spring-boot-starter-validation:jar:4.0.4:compile[36m -- module spring.boot.starter.validation[0;1m [auto][m
+   org.springframework.boot:spring-boot-validation:jar:4.0.4:compile[36m -- module spring.boot.validation[0;1m [auto][m
+   org.apache.tomcat.embed:tomcat-embed-el:jar:11.0.18:compile[36m -- module org.apache.tomcat.embed.el[m
+   org.hibernate.validator:hibernate-validator:jar:9.0.1.Final:compile[36m -- module org.hibernate.validator[m
+   jakarta.validation:jakarta.validation-api:jar:3.1.1:compile[36m -- module jakarta.validation[m
+   org.jboss.logging:jboss-logging:jar:3.6.3.Final:compile[36m -- module org.jboss.logging[m
+   com.fasterxml:classmate:jar:1.7.3:compile[36m -- module com.fasterxml.classmate[m
+   org.springframework.boot:spring-boot-starter-cache:jar:4.0.4:compile[36m -- module spring.boot.starter.cache[0;1m [auto][m
+   org.springframework.boot:spring-boot-cache:jar:4.0.4:compile[36m -- module spring.boot.cache[0;1m [auto][m
+   org.springframework:spring-context-support:jar:7.0.6:compile[36m -- module spring.context.support[0;1m [auto][m
+   com.github.ben-manes.caffeine:caffeine:jar:3.1.8:compile[36m -- module com.github.benmanes.caffeine[m
+   org.checkerframework:checker-qual:jar:3.37.0:compile[36m -- module org.checkerframework.checker.qual[0;1m [auto][m
+   com.google.errorprone:error_prone_annotations:jar:2.21.1:compile[36m -- module com.google.errorprone.annotations[0;1m [auto][m
+   com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.21.1:compile[36m -- module com.fasterxml.jackson.datatype.jsr310[m
+   com.fasterxml.jackson.core:jackson-annotations:jar:2.21:compile[36m -- module com.fasterxml.jackson.annotation[m
+   com.fasterxml.jackson.core:jackson-core:jar:2.21.1:compile[36m -- module com.fasterxml.jackson.core[m
+   com.fasterxml.jackson.core:jackson-databind:jar:2.21.1:compile[36m -- module com.fasterxml.jackson.databind[m
+   org.springdoc:springdoc-openapi-starter-webflux-ui:jar:3.0.1:compile[36m -- module org.springdoc.openapi.webflux.ui[0;1m [auto][m
+   org.springdoc:springdoc-openapi-starter-webflux-api:jar:3.0.1:compile[36m -- module org.springdoc.openapi.webflux.core[0;1m [auto][m
+   org.springdoc:springdoc-openapi-starter-common:jar:3.0.1:compile[36m -- module org.springdoc.openapi.common[0;1m [auto][m
+   io.swagger.core.v3:swagger-core-jakarta:jar:2.2.41:compile[36m -- module io.swagger.v3.core[0;1m [auto][m
+   org.apache.commons:commons-lang3:jar:3.19.0:compile[36m -- module org.apache.commons.lang3[m
+   io.swagger.core.v3:swagger-annotations-jakarta:jar:2.2.41:compile[36m -- module io.swagger.v3.oas.annotations[0;1m [auto][m
+   io.swagger.core.v3:swagger-models-jakarta:jar:2.2.41:compile[36m -- module io.swagger.v3.oas.models[0;1m [auto][m
+   com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:jar:2.21.1:compile[36m -- module com.fasterxml.jackson.dataformat.yaml[m
+   org.webjars:swagger-ui:jar:5.31.0:compile[36m -- module swagger.ui[0;1;33m (auto)[m
+   org.webjars:webjars-locator-lite:jar:1.1.3:compile[36m -- module org.webjars.locator_lite[0;1m [auto][m
+   org.jspecify:jspecify:jar:1.0.0:compile[36m -- module org.jspecify[m
+   org.springframework.boot:spring-boot-starter-actuator:jar:4.0.4:compile[36m -- module spring.boot.starter.actuator[0;1m [auto][m
+   org.springframework.boot:spring-boot-starter-micrometer-metrics:jar:4.0.4:compile[36m -- module spring.boot.starter.micrometer.metrics[0;1m [auto][m
+   org.springframework.boot:spring-boot-micrometer-metrics:jar:4.0.4:compile[36m -- module spring.boot.micrometer.metrics[0;1m [auto][m
+   org.springframework.boot:spring-boot-micrometer-observation:jar:4.0.4:compile[36m -- module spring.boot.micrometer.observation[0;1m [auto][m
+   org.springframework.boot:spring-boot-actuator-autoconfigure:jar:4.0.4:compile[36m -- module spring.boot.actuator.autoconfigure[0;1m [auto][m
+   org.springframework.boot:spring-boot-actuator:jar:4.0.4:compile[36m -- module spring.boot.actuator[0;1m [auto][m
+   org.springframework.boot:spring-boot-health:jar:4.0.4:compile[36m -- module spring.boot.health[0;1m [auto][m
+   io.micrometer:micrometer-observation:jar:1.16.4:compile[36m -- module micrometer.observation[0;1m [auto][m
+   io.micrometer:micrometer-commons:jar:1.16.4:compile[36m -- module micrometer.commons[0;1m [auto][m
+   io.micrometer:micrometer-jakarta9:jar:1.16.4:compile[36m -- module micrometer.jakarta9[0;1m [auto][m
+   io.micrometer:micrometer-core:jar:1.16.4:compile[36m -- module micrometer.core[0;1m [auto][m
+   org.hdrhistogram:HdrHistogram:jar:2.2.2:runtime[36m -- module HdrHistogram[0;1;33m (auto)[m
+   org.latencyutils:LatencyUtils:jar:2.0.3:runtime[36m -- module LatencyUtils[0;1;33m (auto)[m
+   io.github.resilience4j:resilience4j-spring-boot3:jar:2.2.0:compile[36m -- module io.github.resilience4j.springboot3[0;1m [auto][m
+   io.github.resilience4j:resilience4j-spring6:jar:2.2.0:compile[36m -- module io.github.resilience4j.spring6[0;1m [auto][m
+   io.github.resilience4j:resilience4j-annotations:jar:2.2.0:compile[36m -- module io.github.resilience4j.annotations[0;1m [auto][m
+   io.github.resilience4j:resilience4j-consumer:jar:2.2.0:compile[36m -- module io.github.resilience4j.consumer[0;1m [auto][m
+   io.github.resilience4j:resilience4j-circularbuffer:jar:2.2.0:runtime[36m -- module io.github.resilience4j.circularbuffer[0;1m [auto][m
+   io.github.resilience4j:resilience4j-framework-common:jar:2.2.0:compile[36m -- module io.github.resilience4j.frameworkcommon[0;1m [auto][m
+   org.slf4j:slf4j-api:jar:2.0.17:compile[36m -- module org.slf4j[m
+   io.github.resilience4j:resilience4j-micrometer:jar:2.2.0:compile[36m -- module io.github.resilience4j.micrometer[0;1m [auto][m
+   io.github.resilience4j:resilience4j-reactor:jar:2.2.0:compile[36m -- module io.github.resilience4j.reactor[0;1m [auto][m
+   io.projectreactor:reactor-core:jar:3.8.4:compile[36m -- module reactor.core[0;1m [auto][m
+   org.reactivestreams:reactive-streams:jar:1.0.4:compile[36m -- module org.reactivestreams[0;1m [auto][m
+   io.github.resilience4j:resilience4j-circuitbreaker:jar:2.2.0:compile[36m -- module io.github.resilience4j.circuitbreaker[0;1m [auto][m
+   io.github.resilience4j:resilience4j-core:jar:2.2.0:compile[36m -- module io.github.resilience4j.core[0;1m [auto][m
+   io.github.resilience4j:resilience4j-ratelimiter:jar:2.2.0:compile[36m -- module io.github.resilience4j.ratelimiter[0;1m [auto][m
+   io.github.resilience4j:resilience4j-timelimiter:jar:2.2.0:compile[36m -- module io.github.resilience4j.timelimiter[0;1m [auto][m
+   io.github.resilience4j:resilience4j-bulkhead:jar:2.2.0:compile[36m -- module io.github.resilience4j.bulkhead[0;1m [auto][m
+   io.github.resilience4j:resilience4j-retry:jar:2.2.0:compile[36m -- module io.github.resilience4j.retry[0;1m [auto][m
+   jakarta.xml.bind:jakarta.xml.bind-api:jar:4.0.4:compile[36m -- module jakarta.xml.bind[m
+   jakarta.activation:jakarta.activation-api:jar:2.1.4:compile[36m -- module jakarta.activation[m
+   org.springframework:spring-core:jar:7.0.6:compile[36m -- module spring.core[0;1m [auto][m
+   commons-logging:commons-logging:jar:1.3.6:compile[36m -- module org.apache.commons.logging[m
+   io.projectreactor.netty:reactor-netty-http:jar:1.3.4:compile[36m -- module reactor.netty.http[0;1m [auto][m
+   io.netty:netty-codec-http:jar:4.2.10.Final:compile[36m -- module io.netty.codec.http[m
+   io.netty:netty-buffer:jar:4.2.10.Final:compile[36m -- module io.netty.buffer[m
+   io.netty:netty-transport:jar:4.2.10.Final:compile[36m -- module io.netty.transport[m
+   io.netty:netty-codec-base:jar:4.2.10.Final:compile[36m -- module io.netty.codec[m
+   io.netty:netty-codec-compression:jar:4.2.10.Final:compile[36m -- module io.netty.codec.compression[m
+   io.netty:netty-handler:jar:4.2.10.Final:compile[36m -- module io.netty.handler[m
+   io.netty:netty-codec-http2:jar:4.2.10.Final:compile[36m -- module io.netty.codec.http2[m
+   io.netty:netty-codec-http3:jar:4.2.10.Final:compile[36m -- module io.netty.codec.http3[m
+   io.netty:netty-transport-native-unix-common:jar:4.2.10.Final:compile[36m -- module io.netty.transport.unix.common[m
+   io.netty:netty-resolver:jar:4.2.10.Final:compile[36m -- module io.netty.resolver[m
+   io.netty:netty-codec-classes-quic:jar:4.2.10.Final:compile[36m -- module io.netty.codec.classes.quic[m
+   io.netty:netty-codec-native-quic:jar:linux-x86_64:4.2.10.Final:runtime[36m -- module io.netty.codec.quic.linux.x86_64[m
+   io.netty:netty-codec-native-quic:jar:linux-aarch_64:4.2.10.Final:runtime[36m -- module io.netty.codec.quic.linux.aarch_64[m
+   io.netty:netty-codec-native-quic:jar:osx-x86_64:4.2.10.Final:runtime[36m -- module io.netty.codec.quic.osx.x86_64[m
+   io.netty:netty-codec-native-quic:jar:osx-aarch_64:4.2.10.Final:runtime[36m -- module io.netty.codec.quic.osx.aarch_64[m
+   io.netty:netty-codec-native-quic:jar:windows-x86_64:4.2.10.Final:runtime[36m -- module io.netty.codec.quic.windows.x86_64[m
+   io.netty:netty-resolver-dns:jar:4.2.10.Final:compile[36m -- module io.netty.resolver.dns[m
+   io.netty:netty-codec-dns:jar:4.2.10.Final:compile[36m -- module io.netty.codec.dns[m
+   io.netty:netty-resolver-dns-native-macos:jar:osx-x86_64:4.2.10.Final:runtime[36m -- module io.netty.resolver.dns.macos.osx.x86_64[m
+   io.netty:netty-resolver-dns-classes-macos:jar:4.2.10.Final:runtime[36m -- module io.netty.resolver.dns.classes.macos[m
+   io.netty:netty-transport-native-epoll:jar:linux-x86_64:4.2.10.Final:runtime[36m -- module io.netty.transport.epoll.linux.x86_64[m
+   io.netty:netty-transport-classes-epoll:jar:4.2.10.Final:runtime[36m -- module io.netty.transport.classes.epoll[m
+   io.projectreactor.netty:reactor-netty-core:jar:1.3.4:compile[36m -- module reactor.netty.core[0;1m [auto][m
+   io.netty:netty-handler-proxy:jar:4.2.10.Final:compile[36m -- module io.netty.handler.proxy[m
+   io.netty:netty-codec-socks:jar:4.2.10.Final:compile[36m -- module io.netty.codec.socks[m
+
