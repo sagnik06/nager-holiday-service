@@ -19,6 +19,51 @@
     <spring-boot.version>4.0.6</spring-boot.version>
   </properties>
 
+  <!-- Explicit dependencyManagement pins to ensure transitive Spring framework artifacts
+       resolve to the patched versions that the Spring Boot parent provides. This helps
+       static scanners that report transitive warnings by forcing consistent versions.
+       Keeping versions aligned with the spring-boot parent (4.0.6 / Spring Framework 7.0.7). -->
+  <dependencyManagement>
+    <dependencies>
+      <!-- Pin core Spring Framework modules to the Spring Boot managed Spring Framework version -->
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-core</artifactId>
+        <version>7.0.7</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-beans</artifactId>
+        <version>7.0.7</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>7.0.7</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-web</artifactId>
+        <version>7.0.7</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-webflux</artifactId>
+        <version>7.0.7</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context-support</artifactId>
+        <version>7.0.7</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-test</artifactId>
+        <version>7.0.7</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
 
   <dependencies>
     <!-- Reactive WebClient -->
